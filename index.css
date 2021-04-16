@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #232531;
+  color: white;
+  font-family: "Nunito", sans-serif;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 3rem;
+}
+
+nav .brand {
+  font-family: "Poppins", sans-serif;
+  font-size: 20pt;
+  font-weight: bold;
+  padding: 1rem 0;
+  margin-right: 1rem;
+}
+
+nav .brand span {
+  color: #e20;
+}
+
+nav .menu a.menu-item {
+  cursor: pointer;
+  margin: 0 1rem;
+  font-size: 13pt;
+  font-weight: 500;
+  transition: all 0.1s linear;
+  position: relative;
+  padding: 0.7rem 0;
+}
+
+nav .menu a.menu-item:hover,
+nav .menu a.menu-item.active {
+  color: #f20;
+}
+
+nav .menu a.menu-item.active {
+  font-weight: 700;
+}
+
+nav .menu a.menu-item::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 4px;
+  background-color: #d20;
+  bottom: 0;
+  left: 0;
+  transition: all 0.2s ease-out;
+}
+
+nav .menu a.menu-item:hover::after,
+nav .menu a.menu-item.active::after {
+  width: 100%;
+}
+
+.section-overview {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-btn {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 1.5rem 2.5rem;
+  border: 3px solid rgb(1, 115, 190);
+  animation: pulse 2s infinite;
+  background-color: transparent;
+  transition: all 0.2s linear;
+  border-radius: 6px;
+}
+
+.main-btn:hover {
+  background-color: rgb(1, 115, 190);
+  animation: none;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(1, 115, 190, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(1, 115, 190, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(1, 115, 190, 0);
+  }
+}
