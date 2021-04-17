@@ -12,8 +12,7 @@ body {
 }
 
 main {
-  width: 100%;
-  max-width: 1080px;
+  width: 1080px;
   margin-top: 2rem;
   padding: 2rem;
 }
@@ -61,9 +60,32 @@ main {
   align-items: center;
   justify-content: center;
   height: 240px;
-
   color: #bbb;
   font-size: 24pt;
   font-weight: bold;
   text-align: center;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.content .item {
+  width: 192px;
+  margin: 0.5rem 7px;
+  background-color: #f04907;
+  padding: 1rem;
+  height: 120px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.content .item:nth-child(5n + 1) {
+  margin-left: 0;
+}
+
+.content .item:nth-child(5n) {
+  margin-right: 0;
 }

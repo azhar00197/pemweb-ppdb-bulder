@@ -32,7 +32,15 @@
         <?php
         } else {
         ?>
-
+            <div class="content">
+                <?php
+                foreach ($projects as $project) {
+                ?>
+                    <div class="item">
+                        <?= $project->name ?>
+                    </div>
+                <?php } ?>
+            </div>
         <?php } ?>
     </main>
 </body>
