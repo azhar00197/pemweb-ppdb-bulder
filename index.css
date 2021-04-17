@@ -80,7 +80,7 @@ nav .menu a.menu-item.active::after {
   color: #fff;
   font-weight: bold;
   padding: 1.5rem 2.5rem;
-  border: 3px solid rgb(1, 115, 190);
+  border: 5px solid rgb(1, 115, 190);
   animation: pulse 2s infinite;
   background-color: transparent;
   transition: all 0.2s linear;

@@ -21,7 +21,7 @@
     </div>
   </nav>
   <section class="section-overview">
-    <a href="#" class="main-btn">BUILD NOW</a>
+    <a href="projects.php" class="main-btn">BUILD NOW</a>
   </section>
 </body>
 
