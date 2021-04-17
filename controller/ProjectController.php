@@ -7,4 +7,19 @@ class ProjectController
         $projects = Project::getAll();
         include __DIR__ . '/../view/ProjectListView.php';
     }
+
+    static function create()
+    {
+        include __DIR__ . '/../view/ProjectForm.php';
+    }
+
+    static function store()
+    {
+        if (!isset($_POST["name"]) || $_POST["name"] === "") {
+            header('Location: create-project.php');
+            exit();
+        }
+        $project = new Project(null, $_POST['name']);
+        $project->save();
+    }
 }

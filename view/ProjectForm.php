@@ -10,30 +10,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/navbar.css">
-    <link rel="stylesheet" href="/styles/project-list-view.css">
+    <link rel="stylesheet" href="/styles/project-form.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 
 <body>
     <?php include __DIR__ . '/navbar.php' ?>
     <main>
         <div class="titlebar">
-            <h1 class="title">PROJECT</h1>
-            <a href="create-project.php" class="btn-add">
-                <span>+</span>
-                Buat Project
+            <a href="javascript:history.back()" class="back-btn">
+                <i class="bi bi-arrow-left-short"></i>
             </a>
+            <h2 class="title">BUAT PROJECT</h2>
         </div>
-        <div class="line"></div>
-
-        <?php if (count($projects) < 1) { ?>
-            <div class="content-empty">
-                BELUM ADA PROJECT
+        <form action="store-project.php" method="POST">
+            <div class="form-group">
+                <label for="project-name">Nama Sekolah</label>
+                <input type="text" name="name" id="project-name" placeholder="Contoh: SDN Malang 2" required maxlength="255">
             </div>
-        <?php
-        } else {
-        ?>
-
-        <?php } ?>
+            <button type="submit">Buat</button>
+        </form>
     </main>
 </body>
 

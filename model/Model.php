@@ -13,4 +13,9 @@ class Model
     {
         self::$db->close();
     }
+
+    protected static function timeToSqlDatetime($time)
+    {
+        return date("Y/m/d H:i:s", $time);
+    }
 }
