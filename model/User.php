@@ -19,6 +19,35 @@ class User extends Model
         $this->updated_at = $updated_at == null ? time() : $updated_at;
     }
 
+    static function findByUsername($username)
+    {
+        self::initDb();
+        $stmt = self::$db->prepare("SELECT * FROM users WHERE `username`=? LIMIT 1");
+        if ($stmt === false) {
+            echo ("Error description: " . self::$db->error);
+            exit;
+        }
+        $stmt->bind_param(
+            "s",
+            $username
+        );
+        $result = $stmt->execute();
+        if ($result === false) {
+            echo ("Error description: " . $stmt->error);
+            exit;
+        }
+        $data = $stmt->get_result();
+        if ($data->num_rows < 1) {
+            self::closeDb();
+            return null;
+        } else {
+            $row = $data->fetch_assoc();
+            $user = new User($row['id'], $row['username'], $row['name'], $row['password'], $row['created_at'], $row['updated_at']);
+            self::closeDb();
+            return $user;
+        }
+    }
+
     function save()
     {
         self::initDb();
