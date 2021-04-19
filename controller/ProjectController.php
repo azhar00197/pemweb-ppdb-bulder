@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../model/Project.php';
+require_once __DIR__ . '/../model/User.php';
 class ProjectController
 {
     static function index()
@@ -8,7 +9,12 @@ class ProjectController
             header('Location: login.php');
             exit();
         }
-        $projects = Project::getAll();
+        $user = User::findByUsername($_SESSION['auth']);
+        if ($user === null) {
+            header('Location: logout.php');
+            exit();
+        }
+        $projects = Project::getAll($user->id);
         include __DIR__ . '/../view/ProjectListView.php';
     }
 
@@ -31,7 +37,13 @@ class ProjectController
             header('Location: create-project.php');
             exit();
         }
-        $project = new Project(null, $_POST['name']);
+        $user = User::findByUsername($_SESSION['auth']);
+        if ($user === null) {
+            header('Location: logout.php');
+            exit();
+        }
+        $project = new Project(null, $user->id, $_POST['name']);
         $project->save();
+        header('Location: projects.php');
     }
 }
