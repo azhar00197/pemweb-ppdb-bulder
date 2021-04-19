@@ -24,3 +24,42 @@ nav .brand {
 nav .brand span {
   color: #e20;
 }
+
+.nav-user {
+  position: relative;
+}
+
+.nav-user .dialog {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 200%;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #232531;
+  border: gray 3px solid;
+}
+
+.nav-user.active .dialog {
+  display: block;
+}
+
+.nav-user .arrow {
+  display: inline-block;
+  transition: 0.2s linear;
+}
+
+.nav-user.active .arrow {
+  transform: rotate(180deg);
+}
+
+.nav-user .dialog a {
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  min-width: 180px;
+}
+
+.nav-user .dialog a:hover {
+  background-color: #820;
+}

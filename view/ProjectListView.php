@@ -11,10 +11,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/navbar.css">
     <link rel="stylesheet" href="/styles/project-list-view.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
 
 <body>
-    <?php include __DIR__ . '/navbar.php' ?>
+    <?php include __DIR__ . '/navbar-auth.php' ?>
     <main>
         <div class="titlebar">
             <h1 class="title">PROJECT</h1>

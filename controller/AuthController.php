@@ -3,13 +3,27 @@ require __DIR__ . "/../model/User.php";
 
 class AuthController
 {
+    static public function logout()
+    {
+        session_destroy();
+        header('Location: login.php');
+    }
+
     static public function login()
     {
+        if (isset($_SESSION['auth'])) {
+            header('Location: projects.php');
+            exit();
+        }
         include __DIR__ . "/../view/auth/Login.php";
     }
 
     static public function submitLogin()
     {
+        if (isset($_SESSION['auth'])) {
+            header('Location: projects.php');
+            exit();
+        }
         if (
             !isset($_POST["username"]) || $_POST["username"] === "" ||
             !isset($_POST["password"]) || $_POST["password"] === ""
@@ -35,11 +49,19 @@ class AuthController
 
     static public function register()
     {
+        if (isset($_SESSION['auth'])) {
+            header('Location: projects.php');
+            exit();
+        }
         include __DIR__ . "/../view/auth/Register.php";
     }
 
     static public function submitRegister()
     {
+        if (isset($_SESSION['auth'])) {
+            header('Location: projects.php');
+            exit();
+        }
         if (
             !isset($_POST["username"]) || $_POST["username"] === "" ||
             !isset($_POST["name"]) || $_POST["name"] === "" ||
