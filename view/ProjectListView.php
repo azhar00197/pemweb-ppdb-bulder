@@ -37,9 +37,9 @@
                 <?php
                 foreach ($projects as $project) {
                 ?>
-                    <div class="item">
+                    <a href="/informasi.php?project=<?= $project->id ?>" style="color: white;" class="item">
                         <?= $project->name ?>
-                    </div>
+                    </a>
                 <?php } ?>
             </div>
         <?php } ?>

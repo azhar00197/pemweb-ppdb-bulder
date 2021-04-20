@@ -1,4 +1,4 @@
-nav {
+nav.nav-top {
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -11,7 +11,7 @@ nav {
   padding: 0 3rem;
 }
 
-nav .brand {
+nav.nav-top .brand {
   font-family: "Poppins", sans-serif;
   font-size: 20pt;
   font-weight: bold;
@@ -21,7 +21,7 @@ nav .brand {
   color: #fff;
 }
 
-nav .brand span {
+nav.nav-top .brand span {
   color: #e20;
 }
 

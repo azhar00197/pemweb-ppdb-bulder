@@ -46,4 +46,18 @@ class ProjectController
         $project->save();
         header('Location: projects.php');
     }
+
+    static function get()
+    {
+        if (!isset($_SESSION['auth'])) {
+            header('Location: login.php');
+            exit();
+        }
+        if (!isset($_GET["project"]) || $_GET["project"] === "") {
+            header('Location: projects.php');
+            exit();
+        }
+
+        include __DIR__ . "/../view/dashboard/Informasi.php";
+    }
 }

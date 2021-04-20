@@ -1,4 +1,4 @@
-<nav>
+<nav class="nav-top">
     <a href="/" class="brand">PPDB <span>Builder</span></a>
     <div class="nav-user" id="nav-trigger">
         <div style="cursor: pointer; font-weight: bold;">
