@@ -31,18 +31,19 @@
                         <!-- /.card-header -->
                         <div class="card-body">
                             <div class="row">
-                                <form class="col-md-12">
+                                <form class="col-md-12" action="update-informasi.php" method="POST">
+                                    <input type="hidden" name="id" value="<?= $_GET['project'] ?>">
                                     <div class="form-group">
                                         <label>Nama Sekolah</label>
-                                        <input type="text" name="name" class="form-control" style="width: 100%;" />
+                                        <input type="text" name="name" class="form-control" style="width: 100%;" value="<?= $project->name ?>" />
                                     </div>
                                     <div class="form-group">
                                         <label>Deskripsi Sekolah</label>
-                                        <textarea name="description" class="form-control" style="width: 100%;"></textarea>
+                                        <textarea name="description" class="form-control" style="width: 100%;"><?= $project->description ?></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label>Warna Tema</label>
-                                        <input type="text" class="form-control my-colorpicker1">
+                                        <input type="text" name="color" class="form-control my-colorpicker1" value="<?= $project->color ?>">
                                     </div>
                                     <div class="row text-right">
                                         <div class="col-3 offset-9"><button type="submit" class="btn btn-primary">Simpan</button></div>
@@ -71,6 +72,10 @@
         <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
+
+    <script>
+        document.getElementById("link-info").classList.add('active');
+    </script>
 
     <!-- jQuery -->
     <script src="/plugins/jquery/jquery.min.js"></script>
@@ -186,62 +191,7 @@
         // BS-Stepper Init
         document.addEventListener('DOMContentLoaded', function() {
             window.stepper = new Stepper(document.querySelector('.bs-stepper'))
-            document.getElementById("link-build").classList.add('active');
+
         })
-
-        // DropzoneJS Demo Code Start
-        Dropzone.autoDiscover = false
-
-        // Get the template HTML and remove it from the doumenthe template HTML and remove it from the doument
-        var previewNode = document.querySelector("#template")
-        previewNode.id = ""
-        var previewTemplate = previewNode.parentNode.innerHTML
-        previewNode.parentNode.removeChild(previewNode)
-
-        var myDropzone = new Dropzone(document.body, { // Make the whole body a dropzone
-            url: "/target-url", // Set the url
-            thumbnailWidth: 80,
-            thumbnailHeight: 80,
-            parallelUploads: 20,
-            previewTemplate: previewTemplate,
-            autoQueue: false, // Make sure the files aren't queued until manually added
-            previewsContainer: "#previews", // Define the container to display the previews
-            clickable: ".fileinput-button" // Define the element that should be used as click trigger to select files.
-        })
-
-        myDropzone.on("addedfile", function(file) {
-            // Hookup the start button
-            file.previewElement.querySelector(".start").onclick = function() {
-                myDropzone.enqueueFile(file)
-            }
-        })
-
-        // Update the total progress bar
-        myDropzone.on("totaluploadprogress", function(progress) {
-            document.querySelector("#total-progress .progress-bar").style.width = progress + "%"
-        })
-
-        myDropzone.on("sending", function(file) {
-            // Show the total progress bar when upload starts
-            document.querySelector("#total-progress").style.opacity = "1"
-            // And disable the start button
-            file.previewElement.querySelector(".start").setAttribute("disabled", "disabled")
-        })
-
-        // Hide the total progress bar when nothing's uploading anymore
-        myDropzone.on("queuecomplete", function(progress) {
-            document.querySelector("#total-progress").style.opacity = "0"
-        })
-
-        // Setup the buttons for all transfers
-        // The "add files" button doesn't need to be setup because the config
-        // `clickable` has already been specified.
-        document.querySelector("#actions .start").onclick = function() {
-            myDropzone.enqueueFiles(myDropzone.getFilesWithStatus(Dropzone.ADDED))
-        }
-        document.querySelector("#actions .cancel").onclick = function() {
-            myDropzone.removeAllFiles(true)
-        }
-        // DropzoneJS Demo Code End
     </script>
     <?php include __DIR__ . "/footer.php"; ?>
